@@ -58,11 +58,6 @@ body {
     font-size: 12px
 }
 
-.ratings span {
-    font-size: 14px;
-    margin-left: 12px
-}
-
 .colors {
     margin-top: 5px
 }
@@ -78,3 +73,15 @@ body {
 .buttons .btn {
     height: 50px;width: 150px;border-radius: 0px !important
 }
+
+#texto {
+    text-align:justify;
+    padding: 5px;
+}
+
+.checked {
+    color: orange;
+  }
+
+
+  
