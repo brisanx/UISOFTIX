@@ -1,0 +1,80 @@
+.navbar{
+    background-color: #58ccc2;
+  }
+
+#autor {
+    color:#58ccc2;
+}
+
+.item {
+    height:200px;
+}
+
+.item img {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+body {
+    background-color: #ecedee
+}
+
+.card {
+    border: none;overflow: hidden
+}
+
+.thumbnail_images ul {
+    list-style: none;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-top:10px
+}
+.thumbnail_images ul li {
+    margin: 5px;
+    padding: 10px;
+    border: 2px solid #eee;
+    cursor: pointer;
+    transition: all 0.5s
+}
+
+.thumbnail_images ul li:hover
+{
+    border: 2px solid #000
+}
+
+.main_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    height: 600px;
+    width: 100%;
+    overflow: hidden
+}
+
+.content p {
+    font-size: 12px
+}
+
+.ratings span {
+    font-size: 14px;
+    margin-left: 12px
+}
+
+.colors {
+    margin-top: 5px
+}
+
+.right-side{
+    position: relative
+}
+
+.share {
+    position: absolute;right: 20px;top: 22px
+}
+
+.buttons .btn {
+    height: 50px;width: 150px;border-radius: 0px !important
+}
