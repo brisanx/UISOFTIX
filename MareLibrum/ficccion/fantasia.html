@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/index.css"/>
+    <link rel = "icon" href = "../img/icon.png" type = "image/x-icon">
+    <title>Fantasía</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
+    crossorigin="anonymous">
+    
+    <!--PARA ICONOS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  </head>
+  <body>
+    <!-- TODO EL NAVBAR-->
+    <div class="container">
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../indice.html">
+            <img src="../img/icon.png" alt="icono" width="25" height="25">
+            Mare Librum</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" href="ficccion/noDisponible.html">NOVEDADES</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Ficción
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../ficccion/fantasia.html">Fantasía</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">Ciencia ficción</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">Terror</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">Romántica</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Hechos reales
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">Novela Histórica</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">Biografía</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">Autoayuda</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">Estudiantil</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Por edades
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">0 a 3 años</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">3 a 6 años</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">6 a 9 años</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">9 a 12 años</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">+ 12 años</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Manga y cómics
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">Novela gráfica</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">Cómic</a></li>
+                  <li><a class="dropdown-item" href="../ficccion/noDisponible.html">Manga</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="offcanvas" role="button" href="#carrito"><i class="fas fa-shopping-cart"></i></a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Busca tu libro..." aria-label="Search">
+              <button class="btn" id="busca" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!--HASTA AQUI-->
+
+    <!--GRID QUE GUARDA LOS LIBROS-->
+    <main id="libros">       
+    <h1 class="titulo">Libros de Fantasía</h1>
+      <div class="row row-cols-2 row-cols-md-6 g-3">
+
+        <!--Cada col es un libro nuevo-->
+        <div class="col" id="l1">
+          <div class="card h-100 text-center">
+            <a href="../libros/idhun1.html">
+              <img src="../img/Memorias_Idhun_1.jpg" class="card-img-top" alt="...">
+            </a>
+              <div class="card-body">
+              <h5 class="card-title">Memorias de Idhun I (La Resistencia): Búsqueda</h5>
+              <p class="card-subtitle text-muted">Laura Gallego García</p>
+              <br>
+              <h4 class="card-text">9,95€</h4>
+            </div>
+            <div class="card-footer">
+              <a onclick="addLibro(document.getElementById('l1'))" class="btn btn-dark">Añadir al carrito</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col" id="l2">
+          <div class="card h-100 text-center">
+            <a href="../libros/idhun2.html">
+              <img src="../img/memorias_idhun_2.jpg" class="card-img-top" alt="...">
+            </a>
+              <div class="card-body">
+              <h5 class="card-title">Memorias de Idhun II (La Resistencia): Revelación </h5>
+              <p class="card-subtitle text-muted">Laura Gallego García</p>
+              <br>
+              <h4 class="card-text">9,95€</h4>
+            </div>
+            <div class="card-footer">
+              <a onclick="addLibro(document.getElementById('l2'))" class="btn btn-dark">Añadir al carrito</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col" id="l3">
+          <div class="card h-100 text-center">
+            <a href="../libros/idhun2.html">
+              <img src="../img/memorias_idhun_2.jpg" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Memorias de Idhun II (La Resistencia): Revelación </h5>
+              <p class="card-subtitle text-muted">Laura Gallego García</p>
+              <br>
+              <h4 class="card-text">9,95€</h4>
+            </div>
+            <div class="card-footer">
+              <a onclick="addLibro(document.getElementById('l2'))" class="btn btn-dark">Añadir al carrito</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col" id="l4">
+          <div class="card h-100 text-center">
+            <a href="../libros/idhun2.html">
+              <img src="../img/memorias_idhun_2.jpg" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Memorias de Idhun II (La Resistencia): Revelación </h5>
+              <p class="card-subtitle text-muted">Laura Gallego García</p>
+              <br>
+              <h4 class="card-text">9,99€</h4>
+            </div>
+            <div class="card-footer">
+              <a onclick="addLibro(document.getElementById('l2'))" class="btn btn-dark">Añadir al carrito</a>
+            </div>
+          </div>
+        </div>
+    </main>
+
+    <!--OFFCANVAS-->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id= "carrito" aria-labelledby="carritoLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="carritoLabel">Carrito</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <hr class="hr"/>
+            <div class="offcanvas-body">
+            </div>
+            <div class="offcanvas-footer">
+              <hr class="hr"/>
+              <div class="row">
+                <div class="col-md ms-2">
+                    <h2>Total</h2>
+                </div>
+                <div class="col-md-4">
+                    <h2 id="total">0,00€</h2>
+                </div>
+            </div>
+        </div>
+
+    <script src="../js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+     crossorigin="anonymous"></script>
+  </body>
+</html>

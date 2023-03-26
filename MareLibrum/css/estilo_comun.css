@@ -1,0 +1,57 @@
+.navbar{
+    background-color: #58ccc2;
+}
+  
+#busca{
+    background-color: #c3f3e7;
+}
+
+#busca:hover{
+    background-color: #aac9c1;
+}
+
+.fixed-bottom{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+main#libros{
+    padding: 30px;
+    margin-top: 40px;
+}
+
+.card-img-top{
+    max-width: 170px;
+    align-self: center  ;
+}
+
+
+.titulo {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #2f4f4f;
+    text-shadow: 2px 2px #fff;
+    margin-bottom: 50px;
+    margin-top: 75px;
+  }
+
+  #carru{
+    left: 39%;
+    width: 300px;
+    margin-top: 30px;
+}
+
+.carousel-caption{
+    margin-left: -45px;
+    margin-bottom: -20px;
+    height: 40%;
+    width: 100%;
+    background-color: #313030be;
+    padding: 20px;
+}
