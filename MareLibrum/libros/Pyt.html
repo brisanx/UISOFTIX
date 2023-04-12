@@ -89,8 +89,8 @@
       <br><br><br><br>
       <div class="container mt-5 mb-5">
          <div class="card">
-            <div class="row g-0">
-               <div class="col-md-6 border-end">
+            <div class="row g-0" id="libro">
+               <div class="col-md-6 border-end" id="imagen">
                   <div class="d-flex flex-column justify-content-center">
                      <div class="main_image">	<img src="../img/Pyt.jpg" id="mainProductImage" width="350">	</div>
                      <div class="thumbnail_images">
@@ -101,9 +101,9 @@
                      </div>
                   </div>
                </div>
-               <div class="col-md-6">
+               <div class="col-md-6" id="datos">
                   <div class="p-3 right-side">
-                     <div class="d-flex justify-content-between align-items-center">
+                     <div class="d-flex justify-content-between align-items-center" id="titulo">
                         <h3>Python for Finance Cookbook</h3>
                      </div>
                      <div class="d-flex justify-content-between align-items-center" id="autor">
@@ -111,23 +111,23 @@
                      </div>             
                      <div class="mt-2 pr-3 content" id="texto">
                         <p>
-                            Over 80 powerful recipes for effective financial data analysis, 2nd Edition
-                        </p>
+                           Over 80 powerful recipes for effective financial data analysis, 2nd Edition
+                       </p>
                      </div>
                      <h3>25.99€</h3>
                      <div class="d-flex justify-content-between align-items-center">
                         <div class="rating">
                            <span class="fa fa-star checked"></span>
                            <span class="fa fa-star checked"></span>
-                           <span class="fa fa-star"></span>
-                           <span class="fa fa-star"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
                            <span class="fa fa-star"></span>
                          </div>
                         <h5 class="review-count">1 opinión</h5>
                     </div>
-                     <div class="buttons d-flex flex-row mt-5 gap-3">
+                     <div class="buttons d-flex flex-row mt-5 gap-3" id="boton">
                         	<button class="btn btn-outline-dark">Comprar ahora</button>
-                           <button class="btn btn-dark">Añadir a la cesta</button>
+                           <button onclick="addLibro(document.getElementById('libro'))" class="btn btn-dark">Añadir al carrito</button>
                      </div>
                   </div>
                </div>
@@ -151,7 +151,7 @@
                <div class="card-body pt-2">
                  <small class="card-subtitle mb-2 text-muted">Alba Sánchez Ibáñez</small>
                  <p class="card-text">
-                    Really well structured, well written, and the code is thoughtfully put together. This is a complex topic and the direct writing style and real world insights make this a book well worth the asking price. Solid.                 </p>
+                  Really well structured, well written, and the code is thoughtfully put together. This is a complex topic and the direct writing style and real world insights make this a book well worth the asking price. Solid.                 </p>
                </div>
                <div class="card-footer border-0">
                  <small class="text-muted">Publicado el 25 de marzo de 2023</small>
@@ -161,7 +161,33 @@
          </div>
        </div>
 
-       <!--OFFCANVAS-->
+       <!--opinion cliente 2-->
+       <div class="container mt-4">
+         <div class="row">
+           <div class="col-md-12">
+             <div class="card border-0 shadow-sm">
+               <div class="card-header border-0 pb-0">
+                 <h5 class="card-title"><span class="fa fa-star checked"></span>
+                   <span class="fa fa-star checked"></span>
+                   <span class="fa fa-star checked"></span>
+                   <span class="fa fa-star"></span>
+                   <span class="fa fa-star"></span></h5>
+               </div>
+               <div class="card-body pt-2">
+                 <small class="card-subtitle mb-2 text-muted">Josefa</small>
+                 <p class="card-text">
+                     Está bien para pasar el rato, aun que tal vez sea demasiado básico.
+                </p>
+               </div>
+               <div class="card-footer border-0">
+                 <small class="text-muted">Publicado el 12 de abril de 2023</small>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+      <!--OFFCANVAS-->
       <div class="offcanvas offcanvas-start" tabindex="-1" id= "carrito" aria-labelledby="carritoLabel">
          <div class="offcanvas-header">
            <h5 class="offcanvas-title" id="carritoLabel">Carrito</h5>
@@ -180,11 +206,10 @@
                  <h2 id="total">0,00€</h2>
              </div>
          </div>
-      </div>
+     </div>
 
-     </body>
-
-      <script src="./js/libro.js"></script>
+      <script src="../js/carritoLibro.js"></script>
+      <script src="../js/libro.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
    </body>
 </html>

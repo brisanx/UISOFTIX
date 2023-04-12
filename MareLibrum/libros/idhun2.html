@@ -89,10 +89,10 @@
       <br><br><br><br>
       <div class="container mt-5 mb-5">
          <div class="card">
-            <div class="row g-0">
-               <div class="col-md-6 border-end">
+            <div class="row g-0" id="libro">
+               <div class="col-md-6 border-end" id="imagen">
                   <div class="d-flex flex-column justify-content-center">
-                     <div class="main_image">	<img src="../img/Memorias_Idhun_2.jpg" id="mainProductImage" width="350">	</div>
+                     <div class="main_image">	<img src="../img/Memorias_Idhun_2.jpg" id="mainProductImage" width="350"> </div>
                      <div class="thumbnail_images">
                         <ul id="thumbnail">
                            <li><img onclick="cambiaImagen(this)" src="../img/Memorias_Idhun_2.jpg" width="70"></li>
@@ -101,9 +101,9 @@
                      </div>
                   </div>
                </div>
-               <div class="col-md-6">
+               <div class="col-md-6" id="datos">
                   <div class="p-3 right-side">
-                     <div class="d-flex justify-content-between align-items-center">
+                     <div class="d-flex justify-content-between align-items-center" id="titulo">
                         <h3>MEMORIAS DE IDHUN: LA RESISTENCIA II</h3>
                      </div>
                      <div class="d-flex justify-content-between align-items-center" id="autor">
@@ -111,22 +111,22 @@
                      </div>             
                      <div class="mt-2 pr-3 content" id="texto">
                         <p>Desde la distancia, las chicas del colegio de Victoria asisten con envidia a la conversación que su compañera mantiene con un guapo desconocido. Jamás sabrán que estos dos viejos amigos llevan años sin verse o que se conocieron luchando por acabar con la tiranía en un remoto mundo. 
-                            Tampoco sabrán que el letal Kirtash todavía les busca para darles caza, pues la misión de Victoria y de su amigo Jack, y por tanto de La Resistencia, dista mucho de haber concluido.</p>
+                           Tampoco sabrán que el letal Kirtash todavía les busca para darles caza, pues la misión de Victoria y de su amigo Jack, y por tanto de La Resistencia, dista mucho de haber concluido.</p>
                      </div>
                      <h3>9,95€</h3>
                      <div class="d-flex justify-content-between align-items-center">
                         <div class="rating">
-                           <span class="fa fa-star checked"></span>
-                           <span class="fa fa-star checked"></span>
-                           <span class="fa fa-star checked"></span>
-                           <span class="fa fa-star"></span>
-                           <span class="fa fa-star"></span>
-                         </div>
-                        <h5 class="review-count">1 opinión</h5>
-                    </div>
-                     <div class="buttons d-flex flex-row mt-5 gap-3">
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star"></span>
+                              <span class="fa fa-star"></span>
+                            </div>
+                           <h5 class="review-count">1 opinión</h5>
+                       </div>
+                     <div class="buttons d-flex flex-row mt-5 gap-3" id="boton">
                         	<button class="btn btn-outline-dark">Comprar ahora</button>
-                           <button class="btn btn-dark">Añadir a la cesta</button>
+                           <button onclick="addLibro(document.getElementById('libro'))" class="btn btn-dark">Añadir al carrito</button>
                      </div>
                   </div>
                </div>
@@ -144,25 +144,25 @@
                  <h5 class="card-title"><span class="fa fa-star checked"></span>
                    <span class="fa fa-star checked"></span>
                    <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star checked"></span>
+                   <span class="fa fa-star"></span>
                    <span class="fa fa-star"></span></h5>
                </div>
                <div class="card-body pt-2">
-                 <small class="card-subtitle mb-2 text-muted">Alba Sánchez Ibáñez</small>
-                 <p class="card-text">
-                  Esto es mucho relleno, porque aunque me he leído el libro, no me acuerdo bien de cómo era salvo que el trío de protagonistas era muy pesado
-                   con el tema amoroso y a mí solo me interesaba la parte de fiu fiu.
-                 </p>
-               </div>
-               <div class="card-footer border-0">
-                 <small class="text-muted">Publicado el 25 de marzo de 2023</small>
+                  <small class="card-subtitle mb-2 text-muted">Alba Sánchez Ibáñez</small>
+                  <p class="card-text">
+                   Esto es mucho relleno, porque aunque me he leído el libro, no me acuerdo bien de cómo era salvo que el trío de protagonistas era muy pesado
+                    con el tema amoroso y a mí solo me interesaba la parte de fiu fiu.
+                  </p>
+                </div>
+                <div class="card-footer border-0">
+                  <small class="text-muted">Publicado el 25 de marzo de 2023</small>
                </div>
              </div>
            </div>
          </div>
        </div>
 
-       <!--OFFCANVAS-->
+      <!--OFFCANVAS-->
       <div class="offcanvas offcanvas-start" tabindex="-1" id= "carrito" aria-labelledby="carritoLabel">
          <div class="offcanvas-header">
            <h5 class="offcanvas-title" id="carritoLabel">Carrito</h5>
@@ -181,11 +181,10 @@
                  <h2 id="total">0,00€</h2>
              </div>
          </div>
-      </div>
+     </div>
 
-     </body>
-
-      <script src="./js/libro.js"></script>
+      <script src="../js/carritoLibro.js"></script>
+      <script src="../js/libro.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
    </body>
 </html>
