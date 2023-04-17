@@ -19,8 +19,8 @@
       <div class="container">
         <nav class="navbar navbar-expand-lg fixed-top">
           <div class="container-fluid">
-            <a class="navbar-brand" href="./indice.html">
-              <img src="./img/icon.png" alt="icono" width="25" height="25">
+            <a class="navbar-brand" href="indice.html">
+              <img src="img/icon.png" alt="icono" width="25" height="25">
               Mare Librum</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -28,45 +28,44 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
               <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" id="c1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Libros por categorías
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./categorias/fantasia.html">Fantasía</a></li>
-                    <li><a class="dropdown-item" href="./categorias/noDisponible.html">Ciencia ficción</a></li>
-                    <li><a class="dropdown-item" href="./categorias/noDisponible.html">Biografía</a></li>
-                    <li><a class="dropdown-item" href="./categorias/noDisponible.html">Estudiantil</a></li>
+                    <li><a class="dropdown-item" href="categorias/fantasia.html">Fantasía</a></li>
+                    <li><a class="dropdown-item" href="categorias/noDisponible.html">Ciencia ficción</a></li>
+                    <li><a class="dropdown-item" href="categorias/noDisponible.html">Biografía</a></li>
+                    <li><a class="dropdown-item" href="categorias/noDisponible.html">Estudiantil</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" id="c2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Libros por edades
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./categorias/noDisponible.html">0 a 3 años</a></li>
-                    <li><a class="dropdown-item" href="./categorias/noDisponible.html">3 a 6 años</a></li>
-                    <li><a class="dropdown-item" href="./categorias/noDisponible.html">6 a 9 años</a></li>
-                    <li><a class="dropdown-item" href="./categorias/noDisponible.html">9 a 12 años</a></li>
-                    <li><a class="dropdown-item" href="./categorias/noDisponible.html">+ 12 años</a></li>
+                    <li><a class="dropdown-item" href="categorias/noDisponible.html">0 a 3 años</a></li>
+                    <li><a class="dropdown-item" href="categorias/noDisponible.html">3 a 6 años</a></li>
+                    <li><a class="dropdown-item" href="categorias/noDisponible.html">6 a 9 años</a></li>
+                    <li><a class="dropdown-item" href="categorias/noDisponible.html">9 a 12 años</a></li>
+                    <li><a class="dropdown-item" href="categorias/noDisponible.html">+ 12 años</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" id="c3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Manga y cómic
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./categorias/noDisponible.html">Cómic</a></li>
-                    <li><a class="dropdown-item" href="./categorias/noDisponible.html">Manga</a></li>
+                    <li><a class="dropdown-item" href="categorias/noDisponible.html">Cómic</a></li>
+                    <li><a class="dropdown-item" href="categorias/noDisponible.html">Manga</a></li>
                   </ul>
                 </li>
               </ul>
-              <div class="itemm">
-                <a class="nav-link" data-bs-toggle="offcanvas" role="button" href="#carrito"><i class="fas fa-shopping-cart"></i></a>
-              </div>
-              <form class="d-flex" role="search">
+              <form class="mx-auto d-flex" role="search" id="busqueda">
                 <input class="form-control me-2" type="search" placeholder="Busca tu libro..." aria-label="Search">
                 <button class="btn" id="busca" type="submit">Buscar</button>
               </form>
+              <a class="btn btn-outline-dark me-3" role="button" id="inicio" href="index.html">Iniciar sesión</a>
+              <a class="btn btn-outline-dark me-3" id="caric" data-bs-toggle="offcanvas" role="button" href="#carrito"><i class="fas fa-shopping-cart"></i></a>
             </div>
           </div>
         </nav>
