@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             console.log("Hemos iniciado sesión en usuario: " + usuario.user);
             sessionStorage.setItem("username", loginUsername.value)
-            window.location.href = "../indice.html";
+            window.location.href = "../index.html";
         }
     });
 
@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     setFormMessage(loginForm, "success", "¡Registrado exitosamente!")
                     loginForm.classList.remove("form--hidden");
                     createAccountForm.classList.add("form--hidden");
+                    
                 }
             }else{
                 setFormMessage(createAccountForm, "error", "Este usuario ya existe.")
