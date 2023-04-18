@@ -164,6 +164,7 @@ export class DBManager {
 		//TODO
 	}
 
+
 	async getCart(user){
 		const docRef = doc(DBManager.BD, "userInfo", user);
 		const docSnap = await getDoc(docRef);
@@ -179,17 +180,34 @@ export class DBManager {
 		//TODO
 	}
 
+	/**
+	 * Función que añade un pedido a la base de datos.
+	 * @param {List} books Lista de ids de libros
+	 * @returns 0 Si ha habido un error
+	 * @returns 1 Si se ha añadido el pedido con éxito
+	 */
 	async addNewOrder(books){
+		let result = 0;
 		const timestamp = new Date();
 		const ordersCollection = collection(db, "orders");
-		
-		const newOrder = await addDoc(ordersCollection, {
-			booksId: books,
-			timestamp: timestamp.toLocaleDateString()
-		});
+		try{
+			const newOrder = await addDoc(ordersCollection, {
+				booksId: books,
+				timestamp: timestamp.toLocaleDateString()
+			});
+			result = 1;
+		}catch(e){
+			console.log("Error añadiendo pedido a la base de datos: ", e)
+		}
 		console.log(`Doc created with ID ${newOrder.id}`);
 	}
 
+	/**
+	 * Función que devuelve la lista de libros pedidos en un pedido específico.
+	 * @param {String} orderId Id del pedido 
+	 * @returns -1 si hay un error
+	 * @returns Lista con los ids de los libros comprados en ese pedido
+	 */
 	async getEspecificOrder(orderId){
 		const docRef = doc(DBManager.BD, "orders", orderId);
 		const docSnap = await getDoc(docRef);
