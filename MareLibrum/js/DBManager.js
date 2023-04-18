@@ -180,9 +180,12 @@ export class DBManager {
 	}
 
 	async addNewOrder(books){
+		const timestamp = new Date();
 		const ordersCollection = collection(db, "orders");
+		
 		const newOrder = await addDoc(ordersCollection, {
-			booksId: books
+			booksId: books,
+			timestamp: timestamp.toLocaleDateString()
 		});
 		console.log(`Doc created with ID ${newOrder.id}`);
 	}
