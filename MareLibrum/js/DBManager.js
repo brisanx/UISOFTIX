@@ -45,18 +45,22 @@ export class DBManager {
 	}
 
 	/**
-	 * Registra el usuario con los datos proporcionados
-	 * Te devuelve un valor numérico para asegurarte que ha sido correcto
-	 * 0 es error
-	 * 1 es correcto
+	 * Se registra al usuario con los datos proporcionados
+	 * @param user 
+	 * @param password 
+	 * @returns 0 si ha habido un error
+	 * @returns 1 si ha sido exitoso el registro 
 	 */
-	registerUser(user, password) {
+	registerUser(user, password, email, phoneNumber) {
 		let result = 0;
 		try {
 			setDoc(doc(DBManager.BD, "userInfo", user),
 				{
+					user: user,
 					password: password,
-					user: user
+					orders: [],
+					email: email,
+					phoneNumber: phoneNumber
 				});
 			result = 1;
 		} catch (e) {
@@ -66,11 +70,12 @@ export class DBManager {
 	};
 
 	/**
-	 * El método loginUser necesita 2 parametros, el usuario y la contraseña,
-	 * este comprueba que esté registrado, en caso de error de las credenciales
-	 * te devuelve el valor numérico 0, y en caso del usuario no existir te devuelve -1.
-	 * En el caso de haber acertado te devuelve un objeto con los parametros:
-	 * user y password
+	 * Comprueba que está registrado para iniciar sesión en la web
+	 * @param user 
+	 * @param password 
+	 * @returns 0 si hay un error con los credenciales
+	 * @returns -1 si el usuario no existe
+	 * @returns Un objeto con los parámetros usuario y contraseña
 	 */
 	async loginUser(user, password) {
 		const docRef = doc(DBManager.BD, "userInfo", user);
@@ -81,8 +86,8 @@ export class DBManager {
 			if (password == docSnap.get("password")) {
 				userResult =
 				{
-					password: password,
-					user: user
+					user: user,
+					password: password
 				}
 			} else {
 				console.log("Contraseña incorrecta.");
@@ -94,5 +99,38 @@ export class DBManager {
 			console.log("Usuario no registrado.");
 		}
 		return userResult;
+	}
+
+	/**
+	 * Devuelve una lista de los pedidos realizados por el ususario
+	 * @param user Usuario del que queremos obtener los pedidos
+	 * @returns -1 Si hay error
+	 * @returns Lista de pedidos realizados 
+	 */
+	
+	async getOrders(user) {
+		const docRef = doc(DBManager.BD, "userInfo", user);
+		const docSnap = await getDoc(docRef);
+		let result = -1;
+
+		if(docSnap.exists()){
+			result = await docSnap.get("orders");
+		}
+		return result;
+	}
+
+	/**
+	 * Actualiza la lista de pedidos del usuario
+	 * @param user Usuario al que actualizar la lista de pedidos
+	 * @param ordersList La lista de pedidos nueva
+	 */
+	async setOrders(user, ordersList) {
+		try{
+			updateDoc(Doc(DBManager, "userInfo", user)),{
+				orders: ordersList
+			}
+		} catch(e){
+			console.error("Error updating orders: ", e);
+		}
 	}
 }

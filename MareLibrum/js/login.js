@@ -6,6 +6,9 @@ const loginPassword = document.getElementById("loginPassword");
 const signupUsername = document.getElementById("signupUsername");
 const signupPassword = document.getElementById("signupPassword");
 const confirmPassword = document.getElementById("confirmPassword");
+const signupEmail = document.getElementById("signupEmail");
+const signupPhoneNumer = document.getElementById("signupPhoneNumber");
+
 
 const sessionStorage = window.sessionStorage
 
@@ -59,18 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }else{
             const isRegistered = await db.loginUser(signupUsername.value)
             if(isRegistered==-1){
-                const registeredUser = await db.registerUser(signupUsername.value, signupPassword.value);
+                const registeredUser = await db.registerUser(signupUsername.value, signupPassword.value, signupEmail.value, signupPhoneNumer.value);
                 console.log(registeredUser)
                 if(registeredUser == 1){
                     setFormMessage(loginForm, "success", "¡Registrado exitosamente!")
                     loginForm.classList.remove("form--hidden");
                     createAccountForm.classList.add("form--hidden");
-                    
                 }
             }else{
                 setFormMessage(createAccountForm, "error", "Este usuario ya existe.")
             }
-        }
-        
+        }        
     }); 
 });
