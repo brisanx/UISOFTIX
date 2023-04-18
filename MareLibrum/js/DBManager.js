@@ -61,7 +61,7 @@ export class DBManager {
 					orders: [],
 					email: email,
 					phoneNumber: phoneNumber,
-					cart:[]
+					cart:{}
 				});
 			result = 1;
 		} catch (e) {
