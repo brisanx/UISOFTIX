@@ -60,7 +60,8 @@ export class DBManager {
 					password: password,
 					orders: [],
 					email: email,
-					phoneNumber: phoneNumber
+					phoneNumber: phoneNumber,
+					cart:[]
 				});
 			result = 1;
 		} catch (e) {
@@ -161,6 +162,21 @@ export class DBManager {
 	}
 
 	async setEmail(user, email){
+		//TODO
+	}
+
+	async getCart(user){
+		const docRef = doc(DBManager.BD, "userInfo", user);
+		const docSnap = await getDoc(docRef);
+		let result = -1;
+
+		if(docSnap.exists()){
+			result = await docSnap.get("cart");
+		}
+		return result;
+	}
+
+	async setCart(user, cart){
 		//TODO
 	}
 }
