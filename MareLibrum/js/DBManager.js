@@ -4,17 +4,6 @@ import {
 	where, collection, getDoc, getDocs
 } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
 
-/*
-IMPORTANTE
-
-PARA QUE FUNCIONE DBMANAGER NECESITA:
-
-·Ser llamado como un módulo (type = "module")
-·El método en el que se llame debe ser async(esto es necesario para permitir el await)
-·llamar a los métodos async de esta clase con await(sino te dará una promesa y solo tu y dios podrás entenderlo xd)
-
-*/
-
 export class DBManager {
 	static BD;
 
@@ -46,8 +35,8 @@ export class DBManager {
 
 	/**
 	 * Se registra al usuario con los datos proporcionados
-	 * @param user 
-	 * @param password 
+	 * @param {String} user 
+	 * @param {String} password 
 	 * @returns 0 si ha habido un error
 	 * @returns 1 si ha sido exitoso el registro 
 	 */
@@ -58,7 +47,7 @@ export class DBManager {
 				{
 					user: user,
 					password: password,
-					orders: [],
+					ordersList: [],
 					email: email,
 					phoneNumber: phoneNumber,
 					cart:{}
@@ -72,8 +61,8 @@ export class DBManager {
 
 	/**
 	 * Comprueba que está registrado para iniciar sesión en la web
-	 * @param user 
-	 * @param password 
+	 * @param {String} user 
+	 * @param {String} password 
 	 * @returns 0 si hay un error con los credenciales
 	 * @returns -1 si el usuario no existe
 	 * @returns Un objeto con los parámetros usuario y contraseña
@@ -104,12 +93,11 @@ export class DBManager {
 
 	/**
 	 * Devuelve una lista de los pedidos realizados por el ususario
-	 * @param user Usuario del que queremos obtener los pedidos
+	 * @param {String} user Usuario del que queremos obtener los pedidos
 	 * @returns -1 Si hay error
 	 * @returns Lista de pedidos realizados 
 	 */
-	
-	async getOrders(user) {
+	async getUserOrders(user) {
 		const docRef = doc(DBManager.BD, "userInfo", user);
 		const docSnap = await getDoc(docRef);
 		let result = -1;
@@ -122,10 +110,10 @@ export class DBManager {
 
 	/**
 	 * Actualiza la lista de pedidos del usuario
-	 * @param user Usuario al que actualizar la lista de pedidos
-	 * @param ordersList La lista de pedidos nueva
+	 * @param {String} user Usuario al que actualizar la lista de pedidos
+	 * @param {List} ordersList La lista de pedidos nueva
 	 */
-	async setOrders(user, ordersList) {
+	async setUserOrders(user, ordersList) {
 		try{
 			updateDoc(Doc(DBManager, "userInfo", user)),{
 				orders: ordersList
@@ -134,14 +122,19 @@ export class DBManager {
 			console.error("Error updating orders: ", e);
 		}
 	}
-
+	/**
+	 * Devuelve el teléfono del usuario pasado por parametro
+	 * @param {String} user 
+	 * @returns -1 si hay un error
+	 * @returns El teléfono del usuario
+	 */
 	async getPhone(user){
 		const docRef = doc(DBManager.BD, "userInfo", user);
 		const docSnap = await getDoc(docRef);
 		let result = -1;
 
 		if(docSnap.exists()){
-			result = await docSnap.get("user");
+			result = await docSnap.get("phoneNumber");
 		}
 		return result;
 	}
@@ -150,6 +143,12 @@ export class DBManager {
 		//TODO
 	}
 
+	/**
+	 * Devuelve el email del usuario pasado por parámetro
+	 * @param {String} user 
+	 * @returns -1 si hay un error
+	 * @returns El email del usuario
+	 */
 	async getEmail(user){
 		const docRef = doc(DBManager.BD, "userInfo", user);
 		const docSnap = await getDoc(docRef);
@@ -178,5 +177,24 @@ export class DBManager {
 
 	async setCart(user, cart){
 		//TODO
+	}
+
+	async addNewOrder(books){
+		const ordersCollection = collection(db, "orders");
+		const newOrder = await addDoc(ordersCollection, {
+			booksId: books
+		});
+		console.log(`Doc created with ID ${newOrder.id}`);
+	}
+
+	async getEspecificOrder(orderId){
+		const docRef = doc(DBManager.BD, "orders", orderId);
+		const docSnap = await getDoc(docRef);
+		let result = -1;
+
+		if(docSnap.exists()){
+			result = await docSnap.get("booksId");
+		}
+		return result;
 	}
 }
