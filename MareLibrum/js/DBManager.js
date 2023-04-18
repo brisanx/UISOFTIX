@@ -133,4 +133,34 @@ export class DBManager {
 			console.error("Error updating orders: ", e);
 		}
 	}
+
+	async getPhone(user){
+		const docRef = doc(DBManager.BD, "userInfo", user);
+		const docSnap = await getDoc(docRef);
+		let result = -1;
+
+		if(docSnap.exists()){
+			result = await docSnap.get("user");
+		}
+		return result;
+	}
+
+	async setPhone(user, phoneNumber){
+		//TODO
+	}
+
+	async getEmail(user){
+		const docRef = doc(DBManager.BD, "userInfo", user);
+		const docSnap = await getDoc(docRef);
+		let result = -1;
+
+		if(docSnap.exists()){
+			result = await docSnap.get("email");
+		}
+		return result;
+	}
+
+	async setEmail(user, email){
+		//TODO
+	}
 }
