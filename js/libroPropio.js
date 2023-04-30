@@ -7,11 +7,12 @@ var elementos = document.getElementById("contador-elem")
 var nelem = parseInt(elementos.innerHTML)
 var nelemcar = document.getElementById("nelem")
 
+const carritoMapJSON = sessionStorage.getItem("carritoMap")
+var carritoMap = new Map(JSON.parse(carritoMapJSON))
+console.log(carritoMap)
+
 let listProducts = [];
 
-//SOLO PRUEBA
-const array = [1,2,2,4]
-//
 
 async function fetchBook() {
   try {
@@ -120,118 +121,198 @@ function cambiaImagen(element) {
 //Carga los libros desde un array de ids
 function cargarLibrosInicial(){
   console.log("llega cargar")
-  for (var i = 0; i<array.length; i++) {
-      console.log("entra bucle")
-      var libro = listProducts.find(function(book) {
-        return book.id==array[i]
-      })
-      console.log(libro)
-      addLibro(libro)
+  var igual = false
+  for (let [id, cant] of carritoMap) {
+    var libro = listProducts.find(function (book) {
+      return book.id == id
+    })
+    addLibro(libro, cant, igual)
   }
 }
 
 //Le llega un div de libro, le saca la id y lo manda a añadir
 function cargaLibro(libroIdDiv){
   var libroId = libroIdDiv.id
-  console.log(libroId)
-  var libro = listProducts.find(function(book) {
-    return book.id==libroId
+  var libro = listProducts.find(function (book) {
+    return book.id == libroId
   })
-  console.log(libro)
-  addLibro(libro)
+  var cantidad = 0
+
+  if (carritoMap.size == 0) {
+    cantidad = 1
+    carritoMap.set(libro.id, cantidad)
+    console.log("PRIMERO")
+  } else {
+    var igual = false
+    for (let [id, cant] of carritoMap.entries()) {
+      if (libro.id === id) {
+        cantidad = cant + 1
+        carritoMap.set(libro.id, cantidad)
+        igual = true
+        console.log("IGUALES")
+      }
+    }
+    if (igual == false) {
+      cantidad = 1
+      console.log("DISTINTOS")
+      carritoMap.set(libro.id, cantidad)
+    }
+
+  }
+  console.log(carritoMap)
+
+  //Guarda el libro en un JSON para almacenar el carrito entre pestañas
+  const carritoMapJSON = JSON.stringify(Array.from(carritoMap.entries()))
+  sessionStorage.setItem("carritoMap", carritoMapJSON)
+  console.log(carritoMapJSON)
+
+  addLibro(libro, cantidad, igual)
 
   turnGreen(libroIdDiv)
   setTimeout(() => {
-      returnNormal(libroIdDiv)
+    returnNormal(libroIdDiv)
   }, 1000);
 }
 
 //Añade el libro al carrito (le llega un objeto Libro del JSON)
-function addLibro(libroElegido){
+function addLibro(libroElegido, cant, igual) {
   const miLibro = libroElegido
 
-  console.log(miLibro)
-  nelem++
-  elementos.innerHTML=nelem
-  nelemcar.innerHTML = "Hay "+nelem+" elementos en el carrito"
+  if (igual) {
+    nelem++
+    elementos.innerHTML = nelem
+    nelemcar.innerHTML = "Hay " + nelem + " elementos en el carrito"
 
-  var newLibro = document.createElement("div")
-  newLibro.className = "container"
+    var libros = carro.getElementsByTagName("div")
+    for (var i = 0; i < libros.length; i++) {
+      if (libros[i].id == miLibro.id) {
+        var libroAct = libros[i]
+        break
+      }
+    }
+    console.log(libroAct)
+    var newCant = libroAct.querySelector('h6')
+    newCant.innerHTML = "Cant.: " + cant
+    sumarPrecio(miLibro.precio + "€")
+  } else {
 
-  var newRow = document.createElement("div")
-  newRow.className = "row"
+    for (var i = 0; i < cant; i++) {
+      nelem++
+    }
+    elementos.innerHTML = nelem
+    nelemcar.innerHTML = "Hay " + nelem + " elementos en el carrito"
 
-  var newCol = document.createElement("div")
-  newCol.className = "col-sm"
+    var newLibro = document.createElement("div")
+    newLibro.className = "container"
+    newLibro.id = miLibro.id
 
-  var newImg = document.createElement("img")
-  newImg.src = miLibro.portada
-  newImg.width = "110"
-  newCol.appendChild(newImg)
+    var newRow = document.createElement("div")
+    newRow.className = "row"
 
-  var newInfo = document.createElement("div")
-  newInfo.className = "container col-sm"
+    var newCol = document.createElement("div")
+    newCol.className = "col-sm"
 
-  var newInfoRow1 = document.createElement("div")
-  newInfoRow1.className="row"
+    var newImg = document.createElement("img")
+    newImg.src = miLibro.portada
+    newImg.width = "110"
+    newCol.appendChild(newImg)
 
-  var newTitulo = document.createElement("h3")
-  newTitulo.className="fs-5"
-  newTitulo.innerHTML= miLibro.titulo
-  newInfoRow1.append(newTitulo)
-  newInfo.append(newInfoRow1)
+    var newInfo = document.createElement("div")
+    newInfo.className = "container col-sm"
 
-  var newInfoRow2 = document.createElement("div")
-  newInfoRow2.className="row"
+    var newInfoRow1 = document.createElement("div")
+    newInfoRow1.className = "row"
 
-  var newAutor = document.createElement("h5")
-  newAutor.className="fs-6"
-  newAutor.innerHTML= miLibro.autor
-  newInfoRow2.append(newAutor)
-  newInfo.append(newInfoRow2)
+    var newTitulo = document.createElement("h3")
+    newTitulo.className = "fs-5"
+    newTitulo.innerHTML = miLibro.titulo
+    newInfoRow1.append(newTitulo)
+    newInfo.append(newInfoRow1)
 
-  newRow.append(newCol)
-  newRow.append(newInfo)
-  newLibro.append(newRow)
+    var newInfoRow2 = document.createElement("div")
+    newInfoRow2.className = "row"
 
-  var newRow2 = document.createElement("div")
-  newRow2.className = "row mt-2"
+    var newAutor = document.createElement("h5")
+    newAutor.className = "fs-6"
+    newAutor.innerHTML = miLibro.autor
+    newInfoRow2.append(newAutor)
+    newInfo.append(newInfoRow2)
 
-  var newCol2 = document.createElement("div")
-  newCol2.className = "col-sm"
+    newRow.append(newCol)
+    newRow.append(newInfo)
+    newLibro.append(newRow)
 
-  var eliminar = document.createElement("button")
-  eliminar.type="button"
-  eliminar.className = "btn btn-danger"
-  eliminar.innerHTML = "Eliminar"
-  newCol2.append(eliminar)
-  eliminar.addEventListener("click", removeLibro, false)
+    var newRow2 = document.createElement("div")
+    newRow2.className = "row mt-2"
 
-  var newCol3 = document.createElement("div")
-  newCol3.className = "col-sm"
+    var newCol2 = document.createElement("div")
+    newCol2.className = "col-sm"
 
-  var newPrecio = document.createElement("h5")
-  newPrecio.innerHTML= miLibro.precio
-  sumarPrecio(newPrecio.innerHTML)
-  newCol3.append(newPrecio)
+    var eliminar = document.createElement("button")
+    eliminar.type = "button"
+    eliminar.className = "btn btn-danger"
+    eliminar.innerHTML = "Eliminar"
+    newCol2.append(eliminar)
+    eliminar.addEventListener("click", removeLibro, false)
 
-  newRow2.append(newCol2)
-  newRow2.append(newCol3)
-  newLibro.append(newRow2)
-  newLibro.append(document.createElement("hr"))
-  
-  carro.querySelectorAll('div')[1].appendChild(newLibro)
-  
-  function removeLibro(){
-      restarPrecio(newPrecio.innerHTML)
-      newLibro.parentNode.removeChild(newLibro) 
-      nelem--
-      elementos.innerHTML=nelem  
-      nelemcar.innerHTML = "Hay "+nelem+" elementos en el carrito"
+    var newCol3 = document.createElement("div")
+    newCol3.className = "col-sm"
 
+    var newPrecio = document.createElement("h5")
+    newPrecio.innerHTML = miLibro.precio + "€"
+    for (var i = 0; i < cant; i++) {
+      sumarPrecio(newPrecio.innerHTML)
+    }
+    newCol3.append(newPrecio)
+
+    var newCol4 = document.createElement("div")
+    newCol4.className = "col-sm"
+    var cantidad = document.createElement("h6")
+    cantidad.innerHTML = "Cant.: " + cant
+    newCol4.append(cantidad)
+
+    newRow2.append(newCol2)
+    newRow2.append(newCol4)
+    newRow2.append(newCol3)
+
+    newLibro.append(newRow2)
+    newLibro.append(document.createElement("hr"))
+
+    carro.querySelectorAll('div')[1].appendChild(newLibro)
   }
-  
+
+  function removeLibro() {
+    restarPrecio(newPrecio.innerHTML)
+    if (newLibro.querySelector('h6').innerHTML === "Cant.: 1") {
+      newLibro.parentNode.removeChild(newLibro)
+    }
+    nelem--
+    elementos.innerHTML = nelem
+    nelemcar.innerHTML = "Hay " + nelem + " elementos en el carrito"
+    cant = newLibro.querySelector('h6').innerHTML.slice(7, newLibro.querySelector('h6').innerHTML.length)
+    cant--
+    cantidad.innerHTML = "Cant.: " + cant
+
+    //Elimina el elemento seleccionado del array
+    for (let [id, cant] of carritoMap) {
+      console.log(id)
+      if (id == miLibro.id) {
+        console.log("ELIMINADO")
+        if (cant == 1) {
+          carritoMap.delete(id)
+        } else {
+          cant--
+          carritoMap.set(id, cant)
+        }
+      }
+    }
+    const carritoArrayJSON = JSON.stringify(Array.from(carritoMap.entries()))
+    sessionStorage.setItem("carritoMap", carritoArrayJSON)
+    console.log(carritoArrayJSON)
+  }
+
 }
+
 
 
 function turnGreen(libro){
