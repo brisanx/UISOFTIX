@@ -12,7 +12,7 @@ if(username!==null){
 if(loged){
     var icon= '<i class="fas fa-user"></i>'
     boton.innerHTML=" Mi perfil"
-    boton.href="perfil.html"
+    boton.href="UISOFTIX/perfil.html"
     boton.insertAdjacentHTML("afterbegin", icon)
 }
 
