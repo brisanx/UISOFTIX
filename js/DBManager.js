@@ -168,16 +168,22 @@ export class DBManager {
 	async getCart(user){
 		const docRef = doc(DBManager.BD, "userInfo", user);
 		const docSnap = await getDoc(docRef);
-		let result = -1;
+		let result = {};
 
-		if(docSnap.exists()){
+		if(docSnap.exists()	){
 			result = await docSnap.get("cart");
 		}
 		return result;
 	}
 
-	async setCart(user, cart){
-		//TODO
+	async setCart(user, carro){
+		try{
+			updateDoc(doc(DBManager, "userInfo", user)),{
+				cart: carro
+			}
+		} catch(e){
+			console.error("Error updating the cart: ", e);
+		}
 	}
 
 	/**

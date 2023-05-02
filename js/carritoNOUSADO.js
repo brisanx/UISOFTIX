@@ -1,9 +1,35 @@
 
-console.log(sessionStorage.getItem("carrito"));
+var username = sessionStorage.getItem("username")
+
+var carro = document.getElementById("carrito")
 var elementos = document.getElementById("contador-elem")
 var nelem = parseInt(elementos.innerHTML)
-var nelemcar = document.getElementById("nelem")
+var nelemcar = document.getElementById("nelem")  
 
+let listaProducts = [];
+
+//SOLO PRUEBA
+
+async function fetchBooks() {
+    try {
+      const response = await fetch('libros.json');
+      const data = await response.json();
+      listaProducts = data.books;
+      cargarLibros()
+    } catch (error) {
+      console.log(error);
+    }
+}
+
+function cargarLibros(){
+    for (const libroID in miMapa) {
+        var libro = listaProducts.filter((book) => {
+            return book.id==libroID
+          });
+          console.log(book.id)
+        addLibro(libro)
+    }
+}
 
 function addLibro(libro){
     const miLibro = libro
@@ -83,6 +109,7 @@ function addLibro(libro){
     newLibro.append(document.createElement("hr"))
     
     carro.querySelectorAll('div')[1].appendChild(newLibro)
+    console.log(carro.querySelectorAll('div')[1].innerHTML)
 
     function removeLibro(){
         restarPrecio(newPrecio.innerHTML)
@@ -90,6 +117,7 @@ function addLibro(libro){
         nelem--
         elementos.innerHTML=nelem  
         nelemcar.innerHTML = "Hay "+nelem+" elementos en el carrito"
+
     }
     
 }
@@ -139,3 +167,4 @@ function restarPrecio(precio){
 
     document.getElementById("total").innerHTML = pFinalStr
 }
+
