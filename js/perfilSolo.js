@@ -85,7 +85,7 @@ function renderBooks(books = listProducts) {
         <div class="card p-3" id="${libro.id}">
                 <div class="d-flex justify-content-center">
                     <a href="pagLibro.html?id=${libro.id}">
-                    <img src="${libro.portada}" class="card-img-top" alt="...">
+                    <img src="${libro.portada}" class="card-img-top" alt="Libro: ${libro.titulo}">
                     </a>
                 </div>
                 <div class="card-body">

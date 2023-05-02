@@ -83,7 +83,7 @@ function renderBooks(books = listProducts) {
           <div class="col d-flex" id="${libro.id}">
             <div class="card flex-fill">
               <a href="pagLibro.html?id=${libro.id}">
-                <img src="${libro.portada}" class="card-img-top" alt="...">
+                <img src="${libro.portada}" class="card-img-top" alt="Libro: ${libro.titulo}">
               </a>
               <div class="card-body">
                 <h5 class="card-title">${libro.titulo}</h5>

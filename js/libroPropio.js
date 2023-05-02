@@ -35,7 +35,7 @@ function renderBook(book) {
             <div class="row g-0" id="${book.id}">
                <div class="col-md-6 border-end" id="imagen">
                   <div class="d-flex flex-column justify-content-center">
-                     <div class="main_image">	<img src="${book.portada}" id="mainProductImage" width="350"> </div>
+                     <div class="main_image">	<img src="${book.portada}" id="mainProductImage" width="350" alt="Portada libro"> </div>
                      <div class="thumbnail_images">
                         <ul id="thumbnail">
                            <li><img onclick="cambiaImagen(this)" src="${book.portada}" width="70"></li>
