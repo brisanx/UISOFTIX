@@ -19,3 +19,10 @@ if(loged){
 function redirectToCategory(category) {
     window.location.href = `categorias.html?category=${category}`;
   }
+
+var botonCerrar = document.getElementById("cerrar");
+
+botonCerrar.addEventListener("click", function() {
+    sessionStorage.clear()
+    window.location.href = "index.html";
+  });
