@@ -50,12 +50,11 @@
               </ul>
             </li>
             <li>
-              <form class="d-flex" role="search" id="busqueda">
+              <form class="d-flex" role="search" id="busqueda" onsubmit="event.preventDefault(); searchBooks();">
                 <label for="busqueda" class="visually-hidden">Busca tu libro:</label>
-                <input title="busquedalibro" class="form-control me-2 ms-4" type="search" placeholder="Busca tu libro..." aria-label="Search"
-                  id="searchInput">
-                <input class="btn" id="busca" type="submit" onclick="searchBooks()" value="Buscar"></input>
-              </form>
+                <input title="busquedalibro" class="form-control me-2 ms-4" type="search" placeholder="Busca tu libro..." aria-label="Search" id="searchInput">
+                <input class="btn" id="busca" type="submit" value="Buscar"></input>
+              </form>              
             </li>
           </ul>
           <a class="btn btn-outline-dark me-3" role="button" id="inicio" href="login.html">Iniciar sesión</a>
