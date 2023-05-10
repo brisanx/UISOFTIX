@@ -90,7 +90,7 @@
       },
       {
         "id": 6,
-        "titulo": "Volando Sobre el Esfalto",
+        "titulo": "Volando Sobre el Asfalto",
         "autor": "Antonio Lobato",
         "categoria": "Bio",
         "descripcion": "Domingo, 22 de octubre de 2006. Fernando Alonso vuela sobre el asfalto del Gran Premio de Brasil camino de su segundo campeonato mundial de pilotos: la alonsomanía se desborda y todo un país vibra junto a él. Y es que, por aquel entonces, en España, la gente no conducía, pilotaba; no paraba a echar gasolina, repostaba. Pero, ¿cómo explotó tal pasión por un deporte que sólo dos años atrás era prácticamente desconocido?",
@@ -241,6 +241,81 @@
         "portada": "https://m.media-amazon.com/images/I/41XlwX18gpL._SX327_BO1,204,203,200_.jpg",
         "contraportada": "https://m.media-amazon.com/images/I/81wA6nRuC7L.jpg",
         "comentarios": []
+      },     
+      {
+        "id": 20,
+        "titulo": "El libro troll",
+        "autor": "Elrubius",
+        "categoria": "Infantil",
+        "descripcion": "Tu vida es un libro a medio construir, una aventura espontánea, un juego a veces provocador, pero siempre extraordinario. elrubius, un auténtico fenómeno de YouTube, está dispuesto a acompañarte en una experiencia que recoge tus momentos más gloriosos. Se llama EL LIBRO TROLL y es su última locura: un cuaderno de actividades, un libro interactivo, un álbum de recuerdos… Con un maestro extraordinario: elrubius. ¡DALE CALOOOOOOH!",
+        "precio": "9,40",
+        "portada": "https://imagessl6.casadellibro.com/a/l/t7/96/9788499983196.jpg",
+        "contraportada": "https://m.media-amazon.com/images/I/71uytWm6EML.jpg",
+        "comentarios": [
+          {
+            "usuario": "JuanitoGamerHD2012",
+            "valoracion": 4,
+            "descripcion": "ES GENIAAAAL. De mis libros favoritos y muy chulo ojala me saludes rubius soy muy fannnnn"
+          },
+          {
+            "usuario": "Antonio Resines",
+            "valoracion": 1,
+            "descripcion": "La literatura murió, hace mínimo, 20 años. Crecí leyendo libros clásicos y obras de renombre entre tantos otras .. me apena tanto cuando escucho hablar a los jóvenes de que su libro favorito es de un 'Yutuber' de esos. Es una vergüenza para la literatura toda esta clase de libros."
+          }      
+        ]
+      }, {
+        "id": 21,
+        "titulo": "El principito",
+        "autor": "Antoine de Saint-Exupéry",
+        "categoria": "Infantil",
+        "descripcion": "Viví así, solo, sin nadie con quien hablar verdaderamente, hasta que tuve una avería en el desierto del Sahara, hace seis años. Algo se había roto en mi motor. Y como no tenía conmigo ni mecánico ni pasajeros, me dispuse a realizar, solo, una reparación difícil. Era, para mí, cuestión de vida o muerte. Tenía agua apenas para ocho días. La primera noche dormí sobre la arena a mil millas de todatierra habitada. Estaba más aislado que un náufrago sobre una balsa en medio del océano. Imaginaos, pues, mi sorpresa cuando, al romper el día, me despertó una extraña vocecita que decía: -Por favor..., ¡dibújame un cordero! -¿Eh!? -Dibújame un cordero...",
+        "precio": "6,60",
+        "portada": "https://m.media-amazon.com/images/I/81E-RNGwAIL.jpg",
+        "contraportada": "https://m.media-amazon.com/images/I/81ESHfHVRfL.jpg",
+        "comentarios": [
+          {
+            "usuario": "María Lozano",
+            "valoracion": 5,
+            "descripcion": "Era para regalar, a la niña le ha encantado. Muy chulo y elegante. Para coleccionista."
+          },
+          {
+            "usuario": "Víctor Morales",
+            "valoracion": 5,
+            "descripcion": "Es un libro bastante grande. Me encanta su tamaño La impresión de las páginas y la calidad de las imágenes. Tiene buen tamaño de letra para leer."
+          }      
+        ]
+      }, {
+        "id": 22,
+        "titulo": "Los gatos guerreros: Los Cuatro Clanes 1 - En territorio salvaje",
+        "autor": "Erin Hunter",
+        "categoria": "Infantil",
+        "descripcion": "Durante generaciones, cuatro clanes de gatos salvajes se han dividido el territorio del bosque según las leyes de sus belicosos antecesores. Ahora, sin embargo, los gatos del Clan del Trueno se ven amenazados por el creciente poder del Clan de la Sombra, y cuando algunos de sus nobles guerreros mueren en extrañas circunstancias, la supervivencia del grupo corre peligro. Pero todo cambia el día que aparece Colorado, un gato de compañía criado entre los Dos Patas que busca refugio en el Clan del Trueno. Superada la desconfianza inicial, puede que Colorado acabe siendo uno de los guerreros más valientes y eficaces del clan...",
+        "precio": "14,00",
+        "portada": "https://m.media-amazon.com/images/I/511fKEES1TL.jpg",
+        "contraportada": "https://m.media-amazon.com/images/I/511fKEES1TL.jpg",
+        "comentarios": [
+          {
+            "usuario": "Alba Sánchez",
+            "valoracion": 5,
+            "descripcion": "Mi saga favorita desde que era pequeña. Recomiendo totalmente"
+          } 
+        ]
+      }, {
+        "id": 23,
+        "titulo": "La Emperatriz de los Etéreos",
+        "autor": "Laura Gallego García",
+        "categoria": "Fantasia",
+        "descripcion": "Cuentan que más allá de los Montes de Hielo, más allá de la Ciudad de Cristal, habita la Emperatriz de los Etéreos en un deslumbrante palacio. Dicen que es tan bella que nadie puede mirarla sin perder la razón. Solo los más osados intentan llegar hasta ella.Pero Bipa no cree en los cuentos de hadas. No le interesa nada más allá de las cuevas donde vive su gente. En cambio, su amigo Aer, el hijo del extranjero, parece que cada vez se aleja más de la realidad y va dejándose absorber por el brillo de la estrella azul... donde dicen que vive la Emperatriz de los Etéreos. ¿Por qué quiere partir si en el exterior solo hay hielo y, al parecer, lo único que se encuentra es la muerte? Cuando Aer desaparece rumbo al Palacio de la Emperatriz, Bipa se ve obligada a ir tras él para devolverle a casa. Lleva consigo el Ópalo que le ha prestado Maga, la chamana de la tribu, un colgante que la protegerá del frío y repondrá sus fuerzas. Además, enseguida se sumará a su expedición Nevado, un silencioso gólem de nieve que la ayudará a afrontar los peligros. Durante su intensa búsqueda de Aer, Bipa se afirmará en su propia identidad, la única arma que posee frente a la negación de la naturaleza, que solo conduce a la muerte.",
+        "precio": "14,20",
+        "portada": "https://m.media-amazon.com/images/I/81NhIKzqYNL.jpg",
+        "contraportada": "https://m.media-amazon.com/images/I/51sosETSB9L.jpg",
+        "comentarios": [
+          {
+            "usuario": "Patata congelada",
+            "valoracion": 4,
+            "descripcion": "No cabe duda de que Laura Gallego es una gran escritora y este libro lo demuestra, ya que está lleno de fantasía, aventura y una gran amistad. Sin duda lo recomiendo."
+          } 
+        ]
       }
     ]
   }
