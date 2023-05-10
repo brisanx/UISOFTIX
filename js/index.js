@@ -53,6 +53,7 @@ function searchBooks() {
     return book.titulo.toLowerCase().includes(searchQuery) || book.autor.toLowerCase().includes(searchQuery);
   });
   renderBooks(filteredBooks);
+  return false; 
 }
 
 // Función para renderizar los libros
