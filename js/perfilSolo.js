@@ -24,6 +24,13 @@ if(await db.getEmail(username) !== ""){
     document.getElementById("emailSpan").innerHTML = 'No se ha introducido un email';
 }
 
+var botonCerrar = document.getElementById("cerrar");
+
+botonCerrar.addEventListener("click", function() {
+  sessionStorage.clear()
+  window.location.href = "index.html";
+});
+
 console.log(db.getEmail(username))
 console.log(db.getPhone(username))
 

@@ -1,3 +1,6 @@
+import { DBManager } from './DBManager.js';
+
+const username = sessionStorage.getItem("username")
 let listaProductos = [];
 var carritoMapJSON = sessionStorage.getItem("carritoMap")
 var carritoMap = new Map(JSON.parse(carritoMapJSON))
@@ -5,6 +8,10 @@ console.log(carritoMap)
 let pedidoHTML = "";
 let totalHTML = ""
 
+const db = new DBManager();
+db.init();
+
+const pagarBtn = document.getElementById("pagarFinal")
 //Carga los libros desde un array de ids
 function cargarLibrosInicial() {
   console.log("ahi vamos")
@@ -72,9 +79,40 @@ async function fetchBooks() {
 }
 fetchBooks()
 
-function cleanCarrito(){
-    carritoMap = new Map()
-    carritoMapJSON = JSON.stringify(Array.from(carritoMap.entries()))
-    sessionStorage.setItem("carritoMap", carritoMapJSON)
-    console.log(carritoMapJSON)
+
+async function cleanCarrito() {
+  var orderFinal =carritoToOrder(carritoMap) 
+  console.log(orderFinal)
+
+  if (username != null) {
+    const orderId = await db.addNewOrder(orderFinal)
+    var pedidos = await db.getUserOrders(username)
+    console.log(pedidos)
+    pedidos.push(orderId)
+    console.log(pedidos)
+    await db.setUserOrders(username, pedidos)
+    console.log(await db.getUserOrders(username))
+  } 
+
+  carritoMap = new Map()
+  carritoMapJSON = JSON.stringify(Array.from(carritoMap.entries()))
+  sessionStorage.setItem("carritoMap", carritoMapJSON)
+  console.log(carritoMapJSON)
+
+  window.location.href ="pago_confirmado.html"
+}
+
+pagarBtn.addEventListener("click", cleanCarrito)
+
+
+function carritoToOrder(map) {
+  var lista = []
+  // Recorre cada elemento del mapa
+  map.forEach(function (value, key) {
+    // Agrega la key a la lista value veces
+    for (let i = 0; i < value; i++) {
+      lista.push(key);
+    }
+  });
+  return lista
 }

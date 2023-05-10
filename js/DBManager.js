@@ -103,7 +103,7 @@ export class DBManager {
 		let result = -1;
 
 		if(docSnap.exists()){
-			result = await docSnap.get("orders");
+			result = await docSnap.get("ordersList");
 		}
 		return result;
 	}
@@ -113,11 +113,11 @@ export class DBManager {
 	 * @param {String} user Usuario al que actualizar la lista de pedidos
 	 * @param {List} ordersList La lista de pedidos nueva
 	 */
-	async setUserOrders(user, ordersList) {
+	async setUserOrders(user, orders) {
 		try{
-			updateDoc(Doc(DBManager, "userInfo", user)),{
-				orders: ordersList
-			}
+			updateDoc(doc(DBManager.BD, "userInfo", user),{
+				ordersList: orders
+			})
 		} catch(e){
 			console.error("Error updating orders: ", e);
 		}
@@ -178,9 +178,9 @@ export class DBManager {
 
 	async setCart(user, carro){
 		try{
-			updateDoc(doc(DBManager, "userInfo", user)),{
+			updateDoc(doc(DBManager.BD, "userInfo", user),{
 				cart: carro
-			}
+			})
 		} catch(e){
 			console.error("Error updating the cart: ", e);
 		}
@@ -193,19 +193,19 @@ export class DBManager {
 	 * @returns 1 Si se ha añadido el pedido con éxito
 	 */
 	async addNewOrder(books){
-		let result = 0;
 		const timestamp = new Date();
-		const ordersCollection = collection(db, "orders");
+		var newOrder = []
+		const ordersCollection = collection(DBManager.BD, "orders");
 		try{
-			const newOrder = await addDoc(ordersCollection, {
+			newOrder = await addDoc(ordersCollection, {
 				booksId: books,
 				timestamp: timestamp.toLocaleDateString()
 			});
-			result = 1;
 		}catch(e){
 			console.log("Error añadiendo pedido a la base de datos: ", e)
 		}
 		console.log(`Doc created with ID ${newOrder.id}`);
+		return newOrder.id;
 	}
 
 	/**
