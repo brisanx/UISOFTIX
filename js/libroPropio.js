@@ -58,13 +58,41 @@ function renderBook(book) {
                         <h3>${book.precio}€</h3>
                         <div class="buttons d-flex flex-row mt-5 gap-3" id="boton">
                           <button onclick="cargaLibro(document.getElementById(${book.id}))" class="btn btn-dark">Añadir al carrito</button>
-                        </div>                                                  
+                          <button onclick="mostrarFormulario()" class="btn btn-primary">Añadir comentario</button>
+                          </div>                                                  
                     </div>
                 </div>
             </div>
         </div>
     </div>
   `;
+
+libroHtml += `<h1 class="titulo">Comentarios:</h1>
+<div id="formularioComentario" style="display: none;">
+<h3>Añadir Comentario</h3>
+<form id="comentarioForm">
+  <div>
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" required>
+  </div>
+  <div>
+    <label for="valoracion">Valoración:</label>
+    <select id="valoracion" required>
+      <option value="1">1 Estrella</option>
+      <option value="2">2 Estrellas</option>
+      <option value="3">3 Estrellas</option>
+      <option value="4">4 Estrellas</option>
+      <option value="5">5 Estrellas</option>
+    </select>
+  </div>
+  <div>
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" required></textarea>
+  </div>
+  <button type="submit">Enviar Comentario</button>
+</form>
+</div>
+`;
 
   if (book.comentarios && book.comentarios.length > 0) {
     for (let i = 0; i < book.comentarios.length; i++) {
@@ -88,7 +116,19 @@ function renderBook(book) {
       `;
     }
   } else {
-    libroHtml += "No hay comentarios para este libro";
+    libroHtml += `
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card border-0 shadow-sm text-center">
+              <div class="card-body">
+                <h2>No hay comentarios para este libro</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   document.getElementById("countResults").innerHTML = libroHtml;
@@ -115,6 +155,32 @@ function cambiaImagen(element) {
   
 
 }
+
+function mostrarFormulario() {
+  document.getElementById("formularioComentario").style.display = "block";
+}
+
+document.getElementById("comentarioForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  // Obtener los valores del formulario
+  const usuario = document.getElementById("usuario").value;
+  const valoracion = document.getElementById("valoracion").value;
+  const descripcion = document.getElementById("descripcion").value;
+
+  // Crear el objeto de comentario
+  const comentario = {
+    usuario: usuario,
+    valoracion: valoracion,
+    descripcion: descripcion
+  };
+
+  // Realizar las acciones necesarias con el comentario (guardar en Firebase, actualizar el JSON, etc.)
+
+  // Restablecer el formulario y ocultarlo
+  document.getElementById("comentarioForm").reset();
+  document.getElementById("formularioComentario").style.display = "none";
+});
 
 //Por cuestiones de errores con la carga de libros del json he metido las operaciones del carrito aqui
 
