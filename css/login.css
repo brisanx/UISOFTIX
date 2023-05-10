@@ -1,8 +1,6 @@
-@import url("estilo_comun.css");  
-
 body {
-    --color-primary: #3e8cbf;
-    --color-primary-dark: #255a88;
+    --color-primary: #58ccc2;
+    --color-primary-dark: #000000;
     --color-secondary: #252c6a;
     --color-error: #cc3333;
     --color-success: #4bb544;
@@ -13,10 +11,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
-    background: url(../img/wecbvtv.jpg);
-    /* backdrop-filter: blur(1px); */
+    font-size: 14px;
+    background: url(../img/seabook.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    padding: 0;
 }
 
 .container {
@@ -125,12 +125,4 @@ body {
 
 .form__link:hover {
     text-decoration: underline;
-}
-
-#inicio {
-    background-color: #58ccc2;
-}
-    
-#inicio:hover {
-    background-color: #000000;
 }
