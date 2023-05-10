@@ -241,6 +241,28 @@
         "portada": "https://m.media-amazon.com/images/I/41XlwX18gpL._SX327_BO1,204,203,200_.jpg",
         "contraportada": "https://m.media-amazon.com/images/I/81wA6nRuC7L.jpg",
         "comentarios": []
+      },     
+      {
+        "id": 20,
+        "titulo": "El libro troll",
+        "autor": "Elrubius",
+        "categoria": "Infantil",
+        "descripcion": "Tu vida es un libro a medio construir, una aventura espontánea, un juego a veces provocador, pero siempre extraordinario. elrubius, un auténtico fenómeno de YouTube, está dispuesto a acompañarte en una experiencia que recoge tus momentos más gloriosos. Se llama EL LIBRO TROLL y es su última locura: un cuaderno de actividades, un libro interactivo, un álbum de recuerdos… Con un maestro extraordinario: elrubius. ¡DALE CALOOOOOOH!",
+        "precio": "9,40",
+        "portada": "https://imagessl6.casadellibro.com/a/l/t7/96/9788499983196.jpg",
+        "contraportada": "https://m.media-amazon.com/images/I/71uytWm6EML.jpg",
+        "comentarios": [
+          {
+            "usuario": "JuanitoGamerHD2012",
+            "valoracion": 4,
+            "descripcion": "ES GENIAAAAL. De mis libros favoritos y muy chulo ojala me saludes rubius soy muy fannnnn"
+          },
+          {
+            "usuario": "Antonio Resines",
+            "valoracion": 1,
+            "descripcion": "La literatura murió, hace mínimo, 20 años. Crecí leyendo libros clásicos y obras de renombre entre tantos otras .. me apena tanto cuando escucho hablar a los jóvenes de que su libro favorito es de un 'Yutuber' de esos. Es una vergüenza para la literatura toda esta clase de libros."
+          }
+        ]
       }
     ]
   }
