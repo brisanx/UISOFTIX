@@ -1,14 +1,4 @@
-body {
-  --color-primary: #3e8cbf;
-  --color-primary-dark: #255a88;
-  --color-secondary: #252c6a;
-  --color-error: #cc3333;
-  --color-success: #4bb544;
-  --border-radius: 4px;
-   font-size: 15px;
-}
-
-.navbar, #inicio2 {
+.navbar{
   background-color: #58ccc2;
 }
 
