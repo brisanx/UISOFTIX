@@ -27,7 +27,36 @@ body {
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
     background: #ffffff;
+    margin-bottom: 3rem;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem; 
+}
+
+.button-container button {
+    margin-top:20px;
+    padding: 0.5rem 1.3rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    background: #58ccc2;
+}
+
+.button-container button:hover {
+    background: var(--color-primary-dark);
+}
+
+.button-container button:active {
+    transform: scale(0.98);
+}
+
 
 .form--hidden {
     display: none;
