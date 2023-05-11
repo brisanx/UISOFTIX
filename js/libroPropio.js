@@ -26,6 +26,21 @@ async function fetchBook() {
   }
 }
 
+// Función para buscar los libros según el título o autor
+function searchBooks() {
+  tituloHTML=""
+  const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+  if(searchQuery!==""){
+    tituloHTML += `<h3>Resultados de búsqueda para "${searchQuery}"</h3><br>`;
+  }
+  const filteredBooks = listProducts.filter((book) => {
+    return book.titulo.toLowerCase().includes(searchQuery) || book.autor.toLowerCase().includes(searchQuery);
+  });
+  renderBooks(filteredBooks);
+  return false; 
+}
+
+
 function redirectSearch() {
   const searchQuery = document.getElementById('searchInput').value.toLowerCase();
 
