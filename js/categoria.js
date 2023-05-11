@@ -59,9 +59,10 @@ function searchBooks() {
     tituloHTML += `<h3>Resultados de búsqueda para "${searchQuery}"</h3><br>`;
   }
   const filteredBooks = listProducts.filter((book) => {
-    return (book.titulo.toLowerCase().includes(searchQuery) || book.autor.toLowerCase().includes(searchQuery)) && book.categoria === category;
+    return book.titulo.toLowerCase().includes(searchQuery) || book.autor.toLowerCase().includes(searchQuery);
   });
   renderBooks(filteredBooks);
+  return false; 
 }
 
 function searchCategory() {
