@@ -45,8 +45,8 @@ function renderBook(book) {
                      <div class="main_image">	<img src="${book.portada}" id="mainProductImage" width="350" alt="Portada del libro"> </div>
                      <div class="thumbnail_images">
                         <ul id="thumbnail">
-                           <li><img onclick="cambiaImagen(this)" src="${book.portada}" width="70"></li>
-                           <li><img onclick="cambiaImagen(this)" src="${book.contraportada}" width="70"></li>
+                           <li><img onclick="cambiaImagen(this)" alt="Portada del libro" src="${book.portada}" width="70"></li>
+                           <li><img onclick="cambiaImagen(this)" alt="Contraportada del libro" src="${book.contraportada}" width="70"></li>
                         </ul>
                      </div>
                   </div>
