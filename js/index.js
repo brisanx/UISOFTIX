@@ -1,3 +1,5 @@
+var urlParams = new URLSearchParams(window.location.search);
+var busqueda = urlParams.get('busqueda');
 
 let listProducts = [];
 
@@ -10,6 +12,7 @@ var carro = document.getElementById("carrito")
 var elementos = document.getElementById("contador-elem")
 var nelem = parseInt(elementos.innerHTML)
 var nelemcar = document.getElementById("nelem")
+
 
 let tituloHTML = "";
 
@@ -27,7 +30,15 @@ async function fetchBooks() {
     const data = await response.json();
     listProducts = data.books;
     cargarLibrosInicial()
-    renderBooks();
+    var manera = modoBusqueda()
+    console.log(manera)
+    if (manera !== null) {
+      console.log("11")
+      searchBooks()
+    } else {
+      console.log("12")
+      renderBooks(listProducts);
+    }
   } catch (error) {
     console.log(error);
   }
@@ -42,19 +53,31 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
+function modoBusqueda(){
+  const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+  if(busqueda!==null || busqueda === ''){
+      return busqueda 
+  } else if(searchQuery!==null || searchQuery === ''){
+      return searchQuery 
+  } else {
+    return null 
+  }
+}
+
 // Función para buscar los libros según el título o autor
 function searchBooks() {
+  const filtro = modoBusqueda()
   tituloHTML=""
-  const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-  if(searchQuery!==""){
-    tituloHTML += `<h3>Resultados de búsqueda para "${searchQuery}"</h3><br>`;
+  if(filtro!==""){
+    tituloHTML += `<h3>Resultados de búsqueda para "${filtro}"</h3><br>`;
   }
   const filteredBooks = listProducts.filter((book) => {
-    return book.titulo.toLowerCase().includes(searchQuery) || book.autor.toLowerCase().includes(searchQuery);
+    return book.titulo.toLowerCase().includes(filtro) || book.autor.toLowerCase().includes(filtro);
   });
   renderBooks(filteredBooks);
   return false; 
 }
+
 
 // Función para renderizar los libros
 function renderBooks(books = listProducts) {
