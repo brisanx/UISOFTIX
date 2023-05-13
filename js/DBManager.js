@@ -1,37 +1,17 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
-import {
-	getFirestore, doc, setDoc, query, addDoc, updateDoc,
-	where, collection, getDoc, getDocs
-} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, query, addDoc, updateDoc, where, collection, getDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+import firebaseConfig from "./firebaseConfig.js"; // Importa la configuración de Firebase desde un archivo separado
 
 export class DBManager {
-	static BD;
+  static BD;
 
-	init() {
-		// Import the functions you need from the SDKs you need
-		// TODO: Add SDKs for Firebase products that you want to use
-		// https://firebase.google.com/docs/web/setup#available-libraries
+  init() {
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    DBManager.BD = db;
 
-		// Your web app's Firebase configuration
-		const firebaseConfig = {
-			apiKey: "AIzaSyDcbhH3Fx0KdqCBvSgt3mNuiedFaNM1sPo",
-			authDomain: "marelibrum-softix.firebaseapp.com",
-			projectId: "marelibrum-softix",
-			storageBucket: "marelibrum-softix.appspot.com",
-			messagingSenderId: "443793966980",
-			appId: "1:443793966980:web:c39efdbb685c600e62bfd1",
-			measurementId: "G-9XTNQYRLEH"
-		  };
-
-		// Initialize Firebase
-		const app = initializeApp(firebaseConfig);
-
-		const db = getFirestore(app);
-		DBManager.BD = db;
-
-		console.log("DB inicializada correctamente");
-
-	}
+    console.log("DB inicializada correctamente");
+  }
 
 	/**
 	 * Se registra al usuario con los datos proporcionados
@@ -225,18 +205,45 @@ export class DBManager {
 		return result;
 	}
 
+	async cargarComentarios(){
+		try {
+			const snapshot = await getDocs(collection(DBManager.BD, "pruebaColeccion"));
+			const documentos = snapshot.docs.map((doc) => doc.data());
+			return JSON.stringify(documentos);
+		  } catch (error) {
+			console.error("Error al obtener los documentos de la colección:", error);
+			return null;
+		  }
+	}
+
+	async anyadirComentario(libroId, usuario, valoracion, descripcion){
+        const commentsCollection = collection(DBManager.BD, "pruebaColeccion");
+        try {
+            addDoc(commentsCollection,
+                {
+					idLibro: libroId,
+                    user: usuario,
+                    valoracion: valoracion,
+                    Descripcion: descripcion
+                });
+        } catch (e) {
+            console.error("Error a la hora de agregar comentario: ", e);
+        }
+    }
+
 	/**
 	 * Lo mismo, pero para los timestamps :P
 	 */
 	async getEspecificTimestamp(orderId){
-	const docRef = doc(DBManager.BD, "orders", orderId);
-	const docSnap = await getDoc(docRef);
-	let result = -1;
+		const docRef = doc(DBManager.BD, "orders", orderId);
+		const docSnap = await getDoc(docRef);
+		let result = -1;
 
-	if(docSnap.exists()){
-		result = await docSnap.get("timestamp");
+		if(docSnap.exists()){
+			result = await docSnap.get("timestamp");
+		}
+		return result;
 	}
-	return result;
-}
 
 }
+

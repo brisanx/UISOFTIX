@@ -71,6 +71,7 @@ function searchBooks() {
     return (book.titulo.toLowerCase().includes(searchQuery) || book.autor.toLowerCase().includes(searchQuery)) && book.categoria === category;
   });
   renderBooks(filteredBooks);
+  return false; 
 }
 
 function searchCategory() {
@@ -100,7 +101,7 @@ function renderBooks(books = listProducts) {
                 <h4 class="card-text mb-0">${libro.precio}€</h4>
               </div>
               <div class="card-footer">
-                <a onclick="cargaLibro(document.getElementById('${libro.id}'));carritoNoPermitePagoVacio()" class="btn btn-dark">Añadir al carrito</a>
+                <a onclick="cargaLibro(document.getElementById('${libro.id}')); carritoNoPermitePagoVacio()" class="btn btn-dark">Añadir al carrito</a>
               </div>
             </div>
           </div>
