@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             console.log("Hemos iniciado sesión en usuario: " + usuario.user);
             sessionStorage.setItem("username", loginUsername.value)
-            window.location.href = "../index.html";
+            window.location.href = "./index.html";
         }
     });
 
