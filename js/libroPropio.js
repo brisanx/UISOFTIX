@@ -87,7 +87,8 @@ async function cargaLibro(libroIdDiv){
 
   turnGreen(libroIdDiv)
   setTimeout(() => {
-    returnNormal(libroIdDiv)
+    returnNormal(libroIdDiv);
+    carritoNoPermitePagoVacio();
   }, 1000);
 }
 
@@ -227,11 +228,10 @@ function addLibro(libroElegido, cant, igual) {
     const carritoArrayJSON = JSON.stringify(Array.from(carritoMap.entries()))
     sessionStorage.setItem("carritoMap", carritoArrayJSON)
     console.log(carritoArrayJSON)
+    carritoNoPermitePagoVacio();
   }
 
 }
-
-
 
 function turnGreen(libro){
   var miLibro = libro
@@ -286,4 +286,3 @@ function carritoNoPermitePagoVacio(){
     document.getElementById("btnpago").style.display = 'block';
   }
 }
-carritoNoPermitePagoVacio();
