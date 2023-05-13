@@ -88,7 +88,7 @@
           <h4 class="mb-3">Datos del comprador</h4>
           <div class="container border-bottom mb-4">
 
-            <form class="needs-validation" novalidate>
+            <form class="form" id="pagarFinal">
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="firstName">Nombre</label>
@@ -113,141 +113,141 @@
                   Por favor, introduce una dirección de correo válida para más promociones.
                 </div>
               </div>
-          </div>
-          <h4 class="mb-3">Dirección de envío</h4>
-          <div class="container border-bottom mb-4">
-            <div class="mb-3">
-              <label for="address">Dirección</label>
-              <input type="text" class="form-control" id="address" required>
-              <div class="invalid-feedback">
-                Por favor, introduce tu dirección de envío.
-              </div>
-            </div>
+              <h4 class="mb-3">Dirección de envío</h4>
+              <div class="container border-bottom mb-4">
+                <div class="mb-3">
+                  <label for="address">Dirección</label>
+                  <input type="text" class="form-control" id="address" required>
+                  <div class="invalid-feedback">
+                    Por favor, introduce tu dirección de envío.
+                  </div>
+                </div>
 
-            <div class="mb-3">
-              <label for="address2">Dirección 2 <span class="text-muted">(Opcional)</span></label>
-              <input type="text" class="form-control" id="address2">
-            </div>
+                <div class="mb-3">
+                  <label for="address2">Dirección 2 <span class="text-muted">(Opcional)</span></label>
+                  <input type="text" class="form-control" id="address2">
+                </div>
 
-            <div class="row">
-              <div class="col-md-5 mb-3">
-                <label for="country">País</label>
-                <select class="custom-select d-block w-100" id="country" required>
-                  <option value="">Elige...</option>
-                  <option>España</option>
-                  <option>Portugal</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor, selecciona un país.
+                <div class="row">
+                  <div class="col-md-5 mb-3">
+                    <label for="country">País</label>
+                    <select class="custom-select d-block w-100" id="country" required>
+                      <option value="">Elige...</option>
+                      <option>España</option>
+                      <option>Portugal</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Por favor, selecciona un país.
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="state">Provincia</label>
+                    <select class="custom-select d-block w-100" id="provincia" required>
+                      <option value="">Elige...</option>
+                      <option>Álava</option>
+                      <option>Albacete</option>
+                      <option>Alicante</option>
+                      <option>Almería</option>
+                      <option>Asturias</option>
+                      <option>Ávila</option>
+                      <option>Badajoz</option>
+                      <option>Barcelona</option>
+                      <option>Burgos</option>
+                      <option>Cáceres</option>
+                      <option>Cádiz</option>
+                      <option>Cantabria</option>
+                      <option>Castellón</option>
+                      <option>Ciudad Real</option>
+                      <option>Córdoba</option>
+                      <option>Cuenca</option>
+                      <option>Girona</option>
+                      <option>Granada</option>
+                      <option>Guadalajara</option>
+                      <option>Guipúzcoa</option>
+                      <option>Huelva</option>
+                      <option>Huesca</option>
+                      <option>Islas Baleares</option>
+                      <option>Jaén</option>
+                      <option>La Coruña</option>
+                      <option>La Rioja</option>
+                      <option>Las Palmas</option>
+                      <option>León</option>
+                      <option>Lérida</option>
+                      <option>Lugo</option>
+                      <option>Madrid</option>
+                      <option>Málaga</option>
+                      <option>Murcia</option>
+                      <option>Navarra</option>
+                      <option>Orense</option>
+                      <option>Palencia</option>
+                      <option>Pontevedra</option>
+                      <option>Salamanca</option>
+                      <option>Santa Cruz de Tenerife</option>
+                      <option>Segovia</option>
+                      <option>Sevilla</option>
+                      <option>Soria</option>
+                      <option>Tarragona</option>
+                      <option>Teruel</option>
+                      <option>Toledo</option>
+                      <option>Valencia</option>
+                      <option>Valladolid</option>
+                      <option>Vizcaya</option>
+                      <option>Zamora</option>
+                      <option>Zaragoza</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Por favor, selecciona una provincia.
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="codigoPostal">Código Postal</label>
+                    <input type="text" class="form-control" id="codigoPostal" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Por favor, introduce un código postal.
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-4 mb-3">
-                <label for="state">Provincia</label>
-                <select class="custom-select d-block w-100" id="provincia" required>
-                  <option value="">Elige...</option>
-                  <option>Álava</option>
-                  <option>Albacete</option>
-                  <option>Alicante</option>
-                  <option>Almería</option>
-                  <option>Asturias</option>
-                  <option>Ávila</option>
-                  <option>Badajoz</option>
-                  <option>Barcelona</option>
-                  <option>Burgos</option>
-                  <option>Cáceres</option>
-                  <option>Cádiz</option>
-                  <option>Cantabria</option>
-                  <option>Castellón</option>
-                  <option>Ciudad Real</option>
-                  <option>Córdoba</option>
-                  <option>Cuenca</option>
-                  <option>Girona</option>
-                  <option>Granada</option>
-                  <option>Guadalajara</option>
-                  <option>Guipúzcoa</option>
-                  <option>Huelva</option>
-                  <option>Huesca</option>
-                  <option>Islas Baleares</option>
-                  <option>Jaén</option>
-                  <option>La Coruña</option>
-                  <option>La Rioja</option>
-                  <option>Las Palmas</option>
-                  <option>León</option>
-                  <option>Lérida</option>
-                  <option>Lugo</option>
-                  <option>Madrid</option>
-                  <option>Málaga</option>
-                  <option>Murcia</option>
-                  <option>Navarra</option>
-                  <option>Orense</option>
-                  <option>Palencia</option>
-                  <option>Pontevedra</option>
-                  <option>Salamanca</option>
-                  <option>Santa Cruz de Tenerife</option>
-                  <option>Segovia</option>
-                  <option>Sevilla</option>
-                  <option>Soria</option>
-                  <option>Tarragona</option>
-                  <option>Teruel</option>
-                  <option>Toledo</option>
-                  <option>Valencia</option>
-                  <option>Valladolid</option>
-                  <option>Vizcaya</option>
-                  <option>Zamora</option>
-                  <option>Zaragoza</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor, selecciona una provincia.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="codigoPostal">Código Postal</label>
-                <input type="text" class="form-control" id="codigoPostal" placeholder="" required>
-                <div class="invalid-feedback">
-                  Por favor, introduce un código postal.
-                </div>
-              </div>
-            </div>
-          </div>
 
 
-          <h4 class="mb-3">Pago</h4>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="cc-name">Nombre</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                <small class="text-muted">Nombre completo en la tarjeta</small>
-                <div class="invalid-feedback">
-                  Name on card is required
+              <h4 class="mb-3">Pago</h4>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="cc-name">Nombre</label>
+                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                    <small class="text-muted">Nombre completo en la tarjeta</small>
+                    <div class="invalid-feedback">
+                      Name on card is required
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="cc-number">Número de tarjeta</label>
+                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Credit card number is required
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="cc-number">Número de tarjeta</label>
-                <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                <div class="invalid-feedback">
-                  Credit card number is required
+                <div class="row">
+                  <div class="col-md-3 mb-3">
+                    <label for="cc-expiration">Expiración</label>
+                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Expiration date required
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="cc-cvv">CVV</label>
+                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Security code required
+                    </div>
+                  </div>
                 </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Realizar pago</button>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">Expiración</label>
-                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                <div class="invalid-feedback">
-                  Expiration date required
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="cc-cvv">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                <div class="invalid-feedback">
-                  Security code required
-                </div>
-              </div>
-            </div>
-            <hr class="mb-4">
-            <a class="btn btn-primary btn-lg btn-block" type="submit" id="pagarFinal">Realizar pago</a>
             </form>
           </div>
         </div>
