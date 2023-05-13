@@ -44,6 +44,12 @@
                     <li><a class="dropdown-item" href="#" onclick="redirectToCategory('Comic')">Cómic</a></li>
                 </ul>
                 </li>
+                <li>
+                  <form class="d-flex" role="search" id="busqueda">
+                    <input class="form-control me-2 ms-4" type="search" placeholder="Busca tu libro..." aria-label="Search" id="searchInput">
+                    <button class="btn" id="busca" type="button" onclick="searchBooks()">Buscar</button>
+                  </form>
+                </li>
               </ul>
               <a class="btn btn-outline-dark me-3" role="button" id="inicio" href="login.html">Iniciar sesión</a>
               <a class="btn btn-outline-dark me-3" id="caric" data-bs-toggle="offcanvas" role="button" href="#carrito">
@@ -61,17 +67,19 @@
     <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="container-fluid">
-          <h1 class="text-center mb-4" id="tituloPerfil">Mis datos</h3>
+          <h1 class="text-center mb-4" id="tituloPerfil">Mi perfil</h3>
         </div>
         <div class="col-md-4 border border-3 p-4" id="cuadroPerfil">
           <div class="form-group">
-            <h5 class="text-start">Nombre:  <span id="usernameSpan"></span></h6>
+            <p class="text-start">Nombre:  <span id="usernameSpan"></span></p>
           </div>
+          <br>
           <div class="form-group">
-            <h5 class="text-start">Teléfono:  <span id="telephoneSpan"></span></h6>
+            <p class="text-start">Teléfono:  <span id="telephoneSpan"></span></p>
           </div>
+          <br>
           <div class="form-group">
-            <h5 class="text-start">Correo electrónico:  <span id="emailSpan"></span></h6>
+            <p class="text-start">Correo electrónico:  <span id="emailSpan"></span></p>
           </div>
         </div>
       </div>
@@ -101,7 +109,7 @@
           <h2>Total</h2>
         </div>
         <div class="col-md-4">
-          <h2 id="total">0,00€</h2>
+          <h3 id="total">0,00€</h3>
         </div>
         <a href="pago.html" id="btnpago" class="btn btn-primary mx-auto">Proceder al pago <i class="fas fa-arrow-right"></i></a>
 
