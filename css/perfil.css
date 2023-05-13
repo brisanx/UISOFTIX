@@ -1,0 +1,76 @@
+@import url("index.css");  
+.container {
+  max-width: 600px;
+}
+
+#cuadroPerfil {
+  background-color: rgba(255, 255, 255, 0.664);
+}
+
+.border {
+  border-color: #000000;
+  border-radius: 30px;
+}
+
+.p-5 {
+  padding: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.text-start {
+  text-align: start;
+  font-weight: bold;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #ffffff;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+#titulo, #tituloPerfil {
+  box-sizing: border-box;
+  background-image: linear-gradient(to bottom right, rgba(195, 243, 231, 1), rgba(255, 255, 255, 0.8));
+  margin-bottom: -8px;
+  height:10vh;
+  font-size: 50px;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #2f4f4f;
+  text-shadow: 2px 2px #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px; 
+}
+
+#cerrar {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+#fechaContainer {
+  text-align: center; /* Centra el contenido horizontalmente */
+  margin-bottom: 20px; /* Agrega un margen inferior para separar del contenido anterior */
+}
+
+.fechaPedidos {
+  box-sizing: border-box;
+  background-image: linear-gradient(to bottom right, rgba(195, 243, 231, 1), rgba(255, 255, 255, 0.8));
+  font-size: 30px;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #2f4f4f;
+  text-shadow: 2px 2px #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px; 
+  margin-bottom: -10px;
+}
