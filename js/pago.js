@@ -11,7 +11,7 @@ let totalHTML = ""
 const db = new DBManager();
 db.init();
 
-const pagarBtn = document.getElementById("pagarFinal")
+const pagarForm = document.getElementById("pagarFinal")
 //Carga los libros desde un array de ids
 function cargarLibrosInicial() {
   console.log("ahi vamos")
@@ -80,8 +80,9 @@ async function fetchBooks() {
 fetchBooks()
 
 
-async function cleanCarrito() {
-  var orderFinal =carritoToOrder(carritoMap) 
+pagarForm.addEventListener("submit", async e =>{
+  e.preventDefault()
+  var orderFinal = carritoToOrder(carritoMap) 
   console.log(orderFinal)
 
   if (username != null) {
@@ -100,9 +101,7 @@ async function cleanCarrito() {
   console.log(carritoMapJSON)
 
   window.location.href ="pago_confirmado.html"
-}
-
-pagarBtn.addEventListener("click", cleanCarrito)
+})
 
 
 function carritoToOrder(map) {
