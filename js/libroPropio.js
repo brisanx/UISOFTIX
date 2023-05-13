@@ -19,6 +19,17 @@ function redirectToCategory(category) {
 
 window.redirectToCategory = redirectToCategory;
 
+redirectSearch()
+function redirectSearch() {
+  const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+
+  var param = encodeURIComponent(searchQuery);
+
+  window.location.href = 'index.html?busqueda=' + param;
+}
+
+document.getElementById("busca").addEventListener("click", redirectSearch);
+
 function cambiaImagen(element) {
 
   var main_product_image = document.getElementById('mainProductImage');
