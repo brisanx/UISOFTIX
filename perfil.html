@@ -12,55 +12,60 @@
    </head>
    <body>
 
-      <!--NAV-->
+    <body>
       <div class="container mt-0">
         <nav class="navbar navbar-expand-lg fixed-top" id="cat">
           <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
               <img src="img/icon.png" alt="icono" width="25" height="25">
               Mare Librum</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+              aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
               <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll mx-auto" style="--bs-scroll-height: 100px;">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="c1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" id="c1" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     <strong>Libros por categorías</strong>
                   </a>
                   <ul class="dropdown-menu" id="categoria">
                     <li><a class="dropdown-item" href="#" onclick="redirectToCategory('Fantasia')">Fantasía</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="redirectToCategory('Ciencia')">Científico e Historico</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="redirectToCategory('Ciencia')">Científico e Historico</a>
+                    </li>
                     <li><a class="dropdown-item" href="#" onclick="redirectToCategory('Bio')">Biografía</a></li>
                     <li><a class="dropdown-item" href="#" onclick="redirectToCategory('Infantil')">Infantil</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="c3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" id="c3" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     <strong>Manga y cómic</strong>
                   </a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#" onclick="redirectToCategory('Manga')">Manga</a></li>
                     <li><a class="dropdown-item" href="#" onclick="redirectToCategory('Comic')">Cómic</a></li>
-                </ul>
+                  </ul>
                 </li>
                 <li>
-                  <form class="d-flex" role="search" id="busqueda">
-                    <input class="form-control me-2 ms-4" type="search" placeholder="Busca tu libro..." aria-label="Search" id="searchInput">
-                    <button class="btn" id="busca" type="button" onclick="searchBooks()">Buscar</button>
-                  </form>
+                  <form class="d-flex" role="search" id="busqueda" onsubmit="event.preventDefault(); searchBooks();">
+                    <label for="busqueda" class="visually-hidden">Busca tu libro:</label>
+                    <input title="busquedalibro" class="form-control me-2 ms-4" type="search" placeholder="Busca tu libro..." aria-label="Search" id="searchInput">
+                    <input class="btn" id="busca" type="submit" value="Buscar"></input>
+                  </form>              
                 </li>
               </ul>
               <a class="btn btn-outline-dark me-3" role="button" id="inicio" href="login.html">Iniciar sesión</a>
               <a class="btn btn-outline-dark me-3" id="caric" data-bs-toggle="offcanvas" role="button" href="#carrito">
-               <strong id="contador-elem">0</strong>
+                <strong id="contador-elem">0</strong>
                 <i class="fas fa-shopping-cart fa-lg"></i> Carrito
-                <span class="visually-hidden">.Para más información usa las flechas de dirección</span>
+                <span class="visually-hidden">. Para más información usa las flechas de dirección</span>
               </a>
             </div>
           </div>
         </nav>
-      </div> 
+      </div>
 
     <!--empieza-->
     <br><br>
