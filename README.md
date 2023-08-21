@@ -1,4 +1,4 @@
-# ATENCIÓN / ATENTTION
+# ATENCIÓN / ATTENTION
 
 Project about creating the frontend for a web page, in our case, we made an online library. Made with another four classmates for a university's subject to learn client side technologies. 
 The final project is in the following repository https://github.com/Toorreess/Toorreess.github.io 
